@@ -1,7 +1,10 @@
 const Busboy = require("busboy")
 const { compressPDF } = require("../services/pdfCompressor")
-const { scanFile } = require("../services/fileSecurity")
+// const { scanFile } = require("../services/fileSecurity")
 const { uploadToGithub } = require("../services/githubService")
+const { scanFile } = require("../services/fileScanner")
+// const { uploadToGithub } = require("../services/githubService")
+// const { compressPDF } = require("../services/pdfCompressor")
 const cors = require("cors")
 
 module.exports = async (req, res) => {

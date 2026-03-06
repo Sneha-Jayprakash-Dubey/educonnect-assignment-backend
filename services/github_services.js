@@ -1,7 +1,7 @@
 const axios = require("axios")
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const REPO = "Sneha-Jayprakash-dubey/educonnect-assignments"
+const REPO = "Sneha-Jayprakash-dubey/educonnect-assignments-backend"
 
 async function uploadToGithub(fileBuffer, fileName) {
 

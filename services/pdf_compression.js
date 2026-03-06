@@ -1,14 +1,21 @@
-const { PDFDocument } = require("pdf-lib")
+const zlib = require("zlib")
 
-async function compressPDF(buffer){
+async function compressPDF(buffer) {
 
-    const pdfDoc = await PDFDocument.load(buffer)
+    return new Promise((resolve, reject) => {
 
-    const compressedPdf = await pdfDoc.save({
-        useObjectStreams:true
+        zlib.gzip(buffer, (err, compressed) => {
+
+            if(err){
+                reject(err)
+            } else{
+                resolve(compressed)
+            }
+
+        })
+
     })
 
-    return Buffer.from(compressedPdf)
 }
 
 module.exports = { compressPDF }
