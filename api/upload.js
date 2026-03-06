@@ -1,5 +1,5 @@
 const Busboy = require("busboy")
-const { compressPDF } = require("../services/pdfCompressor")
+const { compressPDF } = require("../services/pdf_compression.js")
 // const { scanFile } = require("../services/fileSecurity")
 const { uploadToGithub } = require("../services/githubService")
 const { scanFile } = require("../services/fileScanner")
