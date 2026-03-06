@@ -1,9 +1,40 @@
+// const axios = require("axios")
+
+// const GITHUB_TOKEN = process.env.GITHUB_TOKEN
+// const REPO = "Sneha-Jayprakash-dubey/educonnect-assignments-backend"
+
+// async function uploadToGithub(fileBuffer, fileName) {
+
+//     const path = `assignments/${Date.now()}_${fileName}`
+
+//     const base64File = fileBuffer.toString("base64")
+
+//     const response = await axios.put(
+//         `https://api.github.com/repos/${REPO}/contents/${path}`,
+//         {
+//             message: "Upload assignment",
+//             content: base64File
+//         },
+//         {
+//             headers: {
+//                 Authorization: `token ${GITHUB_TOKEN}`,
+//                 "Content-Type": "application/json"
+//             }
+//         }
+//     )
+
+//     return response.data.content.download_url
+// }
+
+// module.exports = {
+//     uploadToGithub
+// }
 const axios = require("axios")
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const REPO = "Sneha-Jayprakash-dubey/educonnect-assignments-backend"
+const REPO = "Sneha-Jayprakash-Dubey/educonnect-assignments"
 
-async function uploadToGithub(fileBuffer, fileName) {
+async function uploadToGithub(fileBuffer,fileName){
 
     const path = `assignments/${Date.now()}_${fileName}`
 
@@ -12,13 +43,12 @@ async function uploadToGithub(fileBuffer, fileName) {
     const response = await axios.put(
         `https://api.github.com/repos/${REPO}/contents/${path}`,
         {
-            message: "Upload assignment",
-            content: base64File
+            message:"Upload assignment",
+            content:base64File
         },
         {
-            headers: {
-                Authorization: `token ${GITHUB_TOKEN}`,
-                "Content-Type": "application/json"
+            headers:{
+                Authorization:`token ${GITHUB_TOKEN}`
             }
         }
     )
@@ -26,6 +56,4 @@ async function uploadToGithub(fileBuffer, fileName) {
     return response.data.content.download_url
 }
 
-module.exports = {
-    uploadToGithub
-}
+module.exports = { uploadToGithub }
